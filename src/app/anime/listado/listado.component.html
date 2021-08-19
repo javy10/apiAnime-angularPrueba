@@ -1,0 +1,32 @@
+<h1 class="text-center">Animes</h1>
+<div class="row" >
+    <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let a of animes">
+        <div class="card">
+            <div class="image">
+                
+                <a >
+                    <img [src]="a.cover_image" [alt]="a.titles" class="card-img-top"/>
+                </a>
+            </div> 
+            <div class="card-inner">
+                <div class="header">
+                    <a>
+                        <h2>{{ a.titles | slice: 0:15}}</h2>
+                    </a>
+                    <h4 class="text-muted"> {{ a.descriptions }} </h4>
+                    <h4 class="text-muted"> {{ a.genres }} </h4>
+                    <small class="text-muted"> {{ a.season_year | date }} </small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 mt-5 container-notFound" *ngIf="animes.length <= 0">
+        <p>No results.......</p>
+    </div>
+</div>
+
+<!-- <button [ngClass]="'no-hidden'" *ngIf="showGoUpButton" class="btn btn-dark" (click)="onScrollTop()">
+    Go UP
+</button> -->
+<!-- [routerLink]="['/character-details', anime.id]" -->
+
